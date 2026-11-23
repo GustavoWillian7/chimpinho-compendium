@@ -24,7 +24,7 @@
 - [x] Frontend base: scaffold, login (com TOTP), shell responsivo e árvore de tópicos — ver `007-fase1-frontend-base.md`
 - [x] Página de nota com editor Tiptap (autosave) — ver `008-fase1-frontend-notas.md`. Conferido no navegador pelo dono (2026-11-23).
 - [ ] UI de anexos (depende do R2 real)
-- [ ] Busca na UI
+- [x] Busca na UI — ver `009-fase1-frontend-busca.md` (falta conferir no navegador)
 - [ ] PWA instalável
 
 **Fase 2 — Estudo**

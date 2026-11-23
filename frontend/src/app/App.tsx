@@ -2,6 +2,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { LoginPage } from '../features/auth/LoginPage';
 import { NotePage } from '../features/notes/NotePage';
+import { SearchPage } from '../features/search/SearchPage';
 import { TopicPage } from '../features/notes/TopicPage';
 import { TreePage } from '../features/tree/TreePage';
 import { Shell } from './Shell';
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <TreePage /> },
       { path: 'topics/:nodeId', element: <TopicPage /> },
+      { path: 'search', element: <SearchPage /> },
       { path: 'notes/:id', element: <NotePage /> },
     ],
   },

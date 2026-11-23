@@ -5,7 +5,10 @@ import { signOut } from '../features/auth/api';
 import { sessionKey, useSession } from '../features/auth/useSession';
 import { t } from '../lib/strings';
 
-const tabs = [{ to: '/', label: t.nav.topics }];
+const tabs = [
+  { to: '/', label: t.nav.topics },
+  { to: '/search', label: t.nav.search },
+];
 
 export function Shell() {
   const qc = useQueryClient();

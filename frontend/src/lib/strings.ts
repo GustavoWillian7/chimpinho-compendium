@@ -15,7 +15,14 @@ export const t = {
     tooMany: 'Muitas tentativas. Aguarde um pouco.',
     generic: 'Algo deu errado. Tente de novo.',
   },
-  nav: { topics: 'Tópicos' },
+  nav: { topics: 'Tópicos', search: 'Busca' },
+  search: {
+    title: 'Busca',
+    label: 'Buscar nas notas',
+    results: 'Resultados',
+    empty: 'Nada encontrado.',
+    archived: 'arquivado',
+  },
   tree: {
     title: 'Tópicos',
     empty: 'Nenhum tópico ainda. Crie o primeiro.',

@@ -12,6 +12,15 @@ npm run dev                 # http://localhost:3333
 ```
 Sem `DATABASE_URL`, os dados ficam em `./.data/pglite` (ignorado pelo git).
 
+### Windows (PowerShell)
+- O `.env` é obrigatório: sem `AUTH_SECRET` o servidor não sobe. O `.env` está no `.gitignore`.
+- A senha precisa ter 12+ caracteres.
+- `npm run` passa por `cmd.exe`, que trata `&` como separador de comandos e corta a senha. Para senhas com `&` (e outros símbolos), chame o script direto, com aspas simples:
+  ```
+  node --import tsx src/scripts/create-user.ts 'voce@email.com' 'Seu Nome' 'sua-senha-com-12-ou-mais&@'
+  ```
+  Aspa simples dentro da senha vira `''`.
+
 ## Scripts
 | Script | O que faz |
 |---|---|

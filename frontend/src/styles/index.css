@@ -1,0 +1,28 @@
+@import 'tailwindcss';
+@import './tokens.css';
+@import '@fontsource/anton/400.css';
+@import '@fontsource/source-sans-3/400.css';
+@import '@fontsource/source-sans-3/600.css';
+@import '@fontsource/source-sans-3/700.css';
+@import '@fontsource/roboto-slab/400.css';
+@import '@fontsource/roboto-slab/600.css';
+
+@layer base {
+  html {
+    background: var(--color-black);
+    color: var(--color-white);
+    font-family: var(--font-sub);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-yellow);
+    outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}

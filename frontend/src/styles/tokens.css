@@ -1,0 +1,15 @@
+@theme {
+  --color-red: #b60616;
+  --color-yellow: #feaa00;
+  --color-terracotta: #c33e2a;
+  --color-black: #020300;
+  --color-gray: #b8b8b8;
+  --color-white: #fffdfe;
+  --color-panel: #0d0d0c;
+
+  --font-topic: 'Anton', Impact, sans-serif;
+  --font-sub: 'Source Sans 3', system-ui, sans-serif;
+  --font-text: 'Roboto Slab', Georgia, serif;
+
+  --radius-panel: 2px;
+}

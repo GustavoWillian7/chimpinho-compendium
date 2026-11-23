@@ -21,7 +21,11 @@
 - [x] Notas com editor rico — backend (módulo `items`), ver `004-fase1-modulo-items.md`. O editor Tiptap em si entra com o frontend.
 - [x] Anexos (imagem, áudio, PDF) via R2 com URL assinada — backend (módulo `attachments`), ver `005-fase1-modulo-anexos.md`. Falta configurar o bucket R2 real e a UI no frontend.
 - [x] Busca básica — backend (módulo `search`), ver `006-fase1-busca-basica.md`
-- Layout responsivo e PWA instalável
+- [x] Frontend base: scaffold, login (com TOTP), shell responsivo e árvore de tópicos — ver `007-fase1-frontend-base.md`
+- [ ] Página de nota com editor Tiptap
+- [ ] UI de anexos (depende do R2 real)
+- [ ] Busca na UI
+- [ ] PWA instalável
 
 **Fase 2 — Estudo**
 - Decks e flashcards com repetição espaçada

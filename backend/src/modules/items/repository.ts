@@ -3,7 +3,7 @@ import type { Database } from '../../db/client.js';
 import { item, node, type TiptapDoc } from '../../db/schema/index.js';
 
 export type ItemRow = typeof item.$inferSelect;
-export type ItemSummaryRow = Omit<ItemRow, 'content' | 'contentText'>;
+export type ItemSummaryRow = Omit<ItemRow, 'content' | 'contentText' | 'searchVector'>;
 
 export interface CreateItemInput {
   userId: string;

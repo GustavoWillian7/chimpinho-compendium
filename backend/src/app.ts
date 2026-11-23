@@ -10,6 +10,8 @@ import { nodesRoutes } from './modules/nodes/routes.js';
 import { NodeError } from './modules/nodes/service.js';
 import { itemsRoutes } from './modules/items/routes.js';
 import { ItemError } from './modules/items/service.js';
+import { searchRoutes } from './modules/search/routes.js';
+import { SearchError } from './modules/search/service.js';
 import { attachmentsRoutes } from './modules/attachments/routes.js';
 import { AttachmentError } from './modules/attachments/service.js';
 import { createS3Storage, type Storage } from './modules/attachments/storage.js';
@@ -24,7 +26,11 @@ export async function buildApp(env: Env, db: Database, deps: { storage?: Storage
 
   // Precisa vir ANTES do registro das rotas: plugins encapsulados herdam o handler vigente na criação.
   app.setErrorHandler((error, request, reply) => {
-    if (error instanceof NodeError || error instanceof ItemError || error instanceof AttachmentError) {
+    if (
+      error instanceof NodeError || error instanceof ItemError ||
+      error instanceof AttachmentError ||
+      error instanceof SearchError
+    ) {
       return reply.status(error.status).send({ error: error.code });
     }
     // Erros do próprio Fastify/plugins com status 4xx (413, 429...) passam com o status original.
@@ -45,6 +51,7 @@ export async function buildApp(env: Env, db: Database, deps: { storage?: Storage
   await app.register(authRoute, { auth });
   await app.register(nodesRoutes, { db, auth });
   await app.register(itemsRoutes, { db, auth });
+  await app.register(searchRoutes, { db, auth });
   await app.register(attachmentsRoutes, { db, auth, storage: deps.storage ?? createS3Storage(env) });
 
   // Rota protegida de exemplo; será o padrão de todo módulo.

@@ -28,7 +28,7 @@ src/
   config/env.ts        env validado com Zod
   db/                  client (PGlite|pg), schema/, migrations/
   plugins/auth-route.ts  ponte Fastify ↔ Better Auth
-  modules/               nodes, items, attachments (routes → service → repository)
+  modules/               nodes, items, attachments, search (routes → service → repository)
   auth.ts              configuração do Better Auth
   app.ts               buildApp(): helmet, cors, rate-limit, rotas
   server.ts            entrypoint
@@ -59,6 +59,7 @@ Módulos de domínio (`modules/nodes`, `items`...) entram como `routes → servi
 - `GET /api/v1/items/:itemId/attachments` — listar anexos confirmados
 - `GET /api/v1/attachments/:id/download` — `{ url, expiresAt }` (URL assinada, 5 min)
 - `DELETE /api/v1/attachments/:id` — soft delete
+- `GET /api/v1/search?q=<texto>&limit=<1-50>` — busca em título e conteúdo das notas (full-text `portuguese` + prefixo no título). Devolve `{ id, nodeId, nodeTitle, nodeArchived, type, title, snippet, updatedAt }`. O `snippet` marca os termos com `` (início) e `` (fim), nunca HTML: o cliente deve renderizar como texto e destacar por conta própria. Aceita aspas para frase e `-termo` para excluir
 
 Sem `S3_*` no `.env`, as rotas de anexos respondem 503 `storage_not_configured`. Erros têm o formato `{ "error": "<codigo>" }`.
 

@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '../../components/Button';
 import { t } from '../../lib/strings';
 import type { TopicNode } from './api';
@@ -74,7 +75,12 @@ function TreeItem({ node, depth, m }: { node: TopicNode; depth: number; m: Mutat
           </div>
         ) : (
           <>
-            <span className={`flex-1 truncate ${titleClass}`}>{node.title}</span>
+            <Link
+              to={`/topics/${node.id}`}
+              className={`min-h-11 flex-1 truncate py-2 hover:text-yellow ${titleClass}`}
+            >
+              {node.title}
+            </Link>
             <button
               type="button"
               aria-label={`${t.tree.newChild}: ${node.title}`}

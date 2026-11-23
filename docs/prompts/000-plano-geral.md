@@ -22,7 +22,7 @@
 - [x] Anexos (imagem, áudio, PDF) via R2 com URL assinada — backend (módulo `attachments`), ver `005-fase1-modulo-anexos.md`. Falta configurar o bucket R2 real e a UI no frontend.
 - [x] Busca básica — backend (módulo `search`), ver `006-fase1-busca-basica.md`
 - [x] Frontend base: scaffold, login (com TOTP), shell responsivo e árvore de tópicos — ver `007-fase1-frontend-base.md`
-- [ ] Página de nota com editor Tiptap
+- [x] Página de nota com editor Tiptap (autosave) — ver `008-fase1-frontend-notas.md`. Falta conferir no navegador.
 - [ ] UI de anexos (depende do R2 real)
 - [ ] Busca na UI
 - [ ] PWA instalável

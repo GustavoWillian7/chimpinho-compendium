@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { MemoryRouter } from 'react-router-dom';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import type { TopicNode } from './api';
 import { TreePage } from './TreePage';
@@ -33,7 +34,9 @@ function renderPage() {
   const qc = new QueryClient({ defaultOptions: { queries: { retry: false } } });
   render(
     <QueryClientProvider client={qc}>
-      <TreePage />
+      <MemoryRouter>
+        <TreePage />
+      </MemoryRouter>
     </QueryClientProvider>,
   );
 }

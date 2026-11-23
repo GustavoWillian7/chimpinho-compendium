@@ -6,6 +6,10 @@ const bool = z
   .default('false')
   .transform((v) => v === 'true');
 
+/** Variável opcional: string vazia vira `undefined`. */
+const optionalString = <T extends z.ZodType<string>>(inner: T) =>
+  z.preprocess((v) => (v === '' ? undefined : v), inner.optional());
+
 const schema = z.object({
   NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
   PORT: z.coerce.number().default(3333),
@@ -17,6 +21,11 @@ const schema = z.object({
     .string()
     .optional()
     .transform((v) => (v ? v : undefined)),
+  // Storage S3-compatível (Cloudflare R2). Todas vazias = anexos desligados (503).
+  S3_ENDPOINT: optionalString(z.string().url()),
+  S3_BUCKET: optionalString(z.string()),
+  S3_ACCESS_KEY_ID: optionalString(z.string()),
+  S3_SECRET_ACCESS_KEY: optionalString(z.string()),
 });
 
 export type Env = z.infer<typeof schema>;

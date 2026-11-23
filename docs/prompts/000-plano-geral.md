@@ -19,7 +19,7 @@
 - [x] Backend base + Auth (login, sessão, 2FA TOTP, cadastro desligado)
 - [x] Árvore de tópicos (CRUD, mover, reordenar, soft delete em cascata) — ver `003-fase1-modulo-nodes.md`
 - [x] Notas com editor rico — backend (módulo `items`), ver `004-fase1-modulo-items.md`. O editor Tiptap em si entra com o frontend.
-- **Anexos** (imagem, áudio, PDF) via R2 com URL assinada
+- [x] Anexos (imagem, áudio, PDF) via R2 com URL assinada — backend (módulo `attachments`), ver `005-fase1-modulo-anexos.md`. Falta configurar o bucket R2 real e a UI no frontend.
 - Busca básica
 - Layout responsivo e PWA instalável
 

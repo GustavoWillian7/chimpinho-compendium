@@ -1,7 +1,7 @@
 # Backend
 
 ## Stack
-Node, Fastify 5, TypeScript, Zod, Drizzle ORM, Better Auth (com 2FA TOTP), PostgreSQL (Neon em produção; PGlite em dev/testes), Cloudflare R2 para anexos (a implementar).
+Node, Fastify 5, TypeScript, Zod, Drizzle ORM, Better Auth (com 2FA TOTP), PostgreSQL (Neon em produção; PGlite em dev/testes), Cloudflare R2 (API S3) para anexos.
 
 ## Rodando
 ```
@@ -28,6 +28,7 @@ src/
   config/env.ts        env validado com Zod
   db/                  client (PGlite|pg), schema/, migrations/
   plugins/auth-route.ts  ponte Fastify ↔ Better Auth
+  modules/               nodes, items, attachments (routes → service → repository)
   auth.ts              configuração do Better Auth
   app.ts               buildApp(): helmet, cors, rate-limit, rotas
   server.ts            entrypoint
@@ -53,6 +54,18 @@ Módulos de domínio (`modules/nodes`, `items`...) entram como `routes → servi
 - `PATCH /api/v1/items/:id` — atualizar `title` e/ou `content`
 - `DELETE /api/v1/items/:id` — soft delete
 - `POST /api/v1/items/:id/move` — mover/reordenar (`nodeId`, `beforeId`, `afterId`)
+- `POST /api/v1/items/:itemId/attachments` — reservar anexo (`filename`, `mime`, `sizeBytes`); devolve `{ attachment, upload }` com URL `PUT` pré-assinada. Imagem até 10 MB, PDF até 20 MB, áudio até 50 MB; SVG não é aceito
+- `POST /api/v1/attachments/:id/complete` — confirmar o upload (confere o tamanho no bucket)
+- `GET /api/v1/items/:itemId/attachments` — listar anexos confirmados
+- `GET /api/v1/attachments/:id/download` — `{ url, expiresAt }` (URL assinada, 5 min)
+- `DELETE /api/v1/attachments/:id` — soft delete
+
+Sem `S3_*` no `.env`, as rotas de anexos respondem 503 `storage_not_configured`. Erros têm o formato `{ "error": "<codigo>" }`.
+
+### Configurar o R2
+1. Crie um bucket **privado** e um token de API (leitura e escrita) restrito a ele.
+2. Preencha `S3_ENDPOINT` (`https://<ACCOUNT_ID>.r2.cloudflarestorage.com`), `S3_BUCKET`, `S3_ACCESS_KEY_ID`, `S3_SECRET_ACCESS_KEY`.
+3. Ao ligar o frontend, adicione no bucket uma regra de CORS que permita `PUT` e `GET` a partir da origem do app (o navegador envia o arquivo direto ao R2).
 
 ## Regras
 `docs/rules/seguranca.md`, `dados.md`, `arquitetura.md`.

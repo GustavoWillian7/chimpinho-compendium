@@ -14,10 +14,11 @@ Ligar o frontend ao módulo `items` (004): listar notas de um tópico, criar, ed
 ## Resultado (2026-11-23)
 - Implementado: `features/notes/` (`api`, `useNotes`, `TopicPage`, `NotePage`), rotas, estilos do editor e strings.
 - `typecheck`, `lint`, `build` passam; **10 testes** (3 novos: carregar nota, autosave do título, título vazio não é enviado).
-- **Não verificado no navegador:** toolbar, foco, toque no mobile e o fluxo completo contra o backend real ainda precisam de conferência manual.
+- **Verificado no navegador pelo dono (2026-11-23):** o fluxo funcionou contra o backend real. Toolbar, foco e toque no mobile não foram conferidos com atenção.
 
 ## Pendências
-- Autosave do **conteúdo** só é coberto indiretamente (o jsdom não simula bem a digitação no ProseMirror); conferir no navegador.
+- Autosave do **conteúdo** sem teste automatizado (o jsdom não simula bem a digitação no ProseMirror); só validado à mão.
+- Bundle acima de 500 kB por causa do Tiptap: avaliar import dinâmico.
 - Se o salvamento falhar e o usuário sair da página, o pendente se perde (sem fila/offline).
 - Mover/reordenar notas e apagar pela lista do tópico.
 - Anexos no editor (depende do R2 real), busca na UI, PWA.

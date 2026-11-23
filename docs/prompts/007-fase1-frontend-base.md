@@ -33,7 +33,7 @@ Começar o frontend (mobile-first) e ligar ao backend já pronto. Primeiro corte
 - Conferir com atenção no navegador (mobile 360 e desktop) e validar contraste AA das combinações usadas (cinza/40% em bordas, vermelho só em títulos grandes).
 - Rota `/login` e `/` dependem de `/api/v1/me`; falta tratar sessão expirada no meio do uso (401 em qualquer chamada → voltar ao login).
 - CI (`lint`, `typecheck`, `test`) ainda não existe.
-- Editor Tiptap e página de nota.
+- ~~Editor Tiptap e página de nota~~ — feito, ver `008-fase1-frontend-notas.md`.
 - UI de anexos (precisa do R2 real + CORS).
 - Busca na UI (decidir `unaccent`).
 - PWA (`vite-plugin-pwa`) e verificação de instalabilidade.

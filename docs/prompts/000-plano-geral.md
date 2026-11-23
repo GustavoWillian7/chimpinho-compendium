@@ -62,6 +62,16 @@
 - Fonte manuscrita do modo diário: livre (Google Fonts); registrar licença em `docs/design/licencas-fontes.md`.
 - No editor, manter texto limpo e legível; o estilo diário vale só para leitura.
 
+## Como organizar as anotações (orientação de uso)
+- Um tópico por área da vida (ex.: Xadrez, Japonês, Flauta, Trabalho); subtópicos só quando a área tiver partes distintas (ex.: Japonês → Vocabulário, Gramática, Kanji).
+- Começar raso: notas direto no tópico; criar subtópicos quando passar de ~10–15 notas misturadas. Máximo de 2 níveis; a busca cobre o resto.
+- Dividir por assunto, não por data; se precisar de data, pô-la no título da nota (`2026-11-23 Siciliana`). Títulos que funcionem na busca.
+- Tags e favoritos só na Fase 2; mover notas pela lista do tópico ainda é pendência da Fase 1.
+
+## Persistência entre máquinas
+- Sem `DATABASE_URL`, o backend usa PGlite em `backend/.data` (ignorado pelo git): os dados persistem **só na máquina local**. Clonar o repositório em outra máquina começa com banco vazio e sem usuário.
+- Para ver os mesmos dados em mais de uma máquina é preciso o banco compartilhado (Neon, `DATABASE_URL` igual nas duas, migrações + `npm run user:create`). Ainda não configurado; decisão do dono: adiar.
+
 ## Riscos
 - Anexos de áudio consomem armazenamento: limitar tamanho por arquivo e monitorar cota do R2.
 - Render grátis hiberna: aceitar cold start ou avaliar Fly.io.

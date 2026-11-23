@@ -1,0 +1,16 @@
+node_modules/
+dist/
+build/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+coverage/
+uploads/
+
+# Material de terceiros (Rockstar) — só referência local, não publicar
+docs/references/rdr2/
+
+# Dados locais do PGlite
+.data/

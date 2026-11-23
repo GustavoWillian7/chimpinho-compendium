@@ -1,0 +1,40 @@
+{
+  "name": "chimpinho-backend",
+  "version": "1.0.0",
+  "description": "## Stack (planejada) Node 20+ LTS, Fastify, TypeScript, Zod, Drizzle ORM, PostgreSQL (Neon), Better Auth (confirmar na Fase 0), Cloudflare R2 (anexos, URLs pré-assinadas).",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest run",
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc -p .",
+    "start": "node dist/src/server.js",
+    "typecheck": "tsc -p . --noEmit",
+    "db:generate": "drizzle-kit generate",
+    "user:create": "tsx src/scripts/create-user.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "private": "true",
+  "dependencies": {
+    "@electric-sql/pglite": "^0.5.16",
+    "@fastify/cors": "^11.4.1",
+    "@fastify/helmet": "^13.2.0",
+    "@fastify/rate-limit": "^11.2.2",
+    "better-auth": "^1.7.20",
+    "dotenv": "^18.0.10",
+    "drizzle-orm": "^0.45.4",
+    "fastify": "^5.12.8",
+    "pg": "^8.23.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "@types/pg": "^8.23.1",
+    "drizzle-kit": "^0.31.11",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.12"
+  }
+}

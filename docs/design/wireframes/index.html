@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chimpinho Compendium — Wireframes v1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto+Slab:wght@400;600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#b60616; --yellow:#feaa00; --terra:#c33e2a;
+  --black:#020300; --gray:#b8b8b8; --white:#fffdfe;
+  --panel:#0e0d0b; --panel-2:#171512; --line:#3a3733;
+  --font-topic:'Anton',Impact,sans-serif;
+  --font-sub:'Source Sans 3',system-ui,sans-serif;
+  --font-text:'Roboto Slab',Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#1b1a18;color:var(--white);font-family:var(--font-sub);line-height:1.4;padding:24px 16px 64px}
+.wrap{max-width:1180px;margin:0 auto}
+h1{font-family:var(--font-topic);font-weight:400;font-size:40px;letter-spacing:.04em;color:var(--white)}
+.lede{color:var(--gray);margin:6px 0 28px;max-width:70ch}
+h2{font-family:var(--font-topic);font-weight:400;font-size:28px;letter-spacing:.05em;color:var(--yellow);margin:48px 0 4px}
+.note{color:var(--gray);font-size:14px;margin-bottom:16px;max-width:75ch}
+.note b{color:var(--white)}
+.pair{display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start}
+.label{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--gray);margin-bottom:6px}
+
+/* frames */
+.frame{background:var(--black);border:1px solid var(--line);border-radius:4px;overflow:hidden;position:relative;font-size:14px}
+.desk{width:820px;max-width:100%;height:500px;display:flex;flex-direction:column}
+.mob{width:300px;height:540px;display:flex;flex-direction:column;border-radius:20px;border-width:3px}
+
+/* shared parts */
+.topbar{display:flex;align-items:center;gap:4px;padding:10px 16px;border-bottom:1px solid var(--line);background:var(--panel)}
+.brand{font-family:var(--font-topic);letter-spacing:.06em;color:var(--red);margin-right:16px;font-size:18px}
+.tab{padding:6px 14px;color:var(--gray);font-weight:600;text-transform:uppercase;letter-spacing:.1em;font-size:12px;border-bottom:2px solid transparent}
+.tab.on{color:var(--yellow);border-color:var(--yellow)}
+.spacer{flex:1}
+.pill{border:1px solid var(--line);padding:3px 10px;border-radius:2px;font-size:12px;color:var(--gray)}
+.body{flex:1;display:flex;min-height:0}
+.side{width:230px;border-right:1px solid var(--line);padding:12px;overflow:hidden;background:var(--panel)}
+.main{flex:1;padding:16px 20px;overflow:hidden}
+.panel{background:var(--panel-2);border:1px solid var(--line);border-radius:2px;padding:12px}
+.panel h4{font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--gray);margin-bottom:8px;font-weight:600}
+.title{font-family:var(--font-topic);font-weight:400;letter-spacing:.04em;font-size:34px;line-height:1.05;color:var(--white)}
+.title small{display:block;font-family:var(--font-sub);font-size:12px;letter-spacing:.14em;color:var(--terra);text-transform:uppercase;margin-bottom:4px;font-weight:700}
+.sub{font-weight:700;font-size:15px}
+.txt{font-family:var(--font-text);font-weight:400;font-size:13px;color:#e8e4e0}
+.muted{color:var(--gray)}
+.bar{height:6px;background:#2a2723;border-radius:1px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--yellow)}
+.badge{display:inline-block;font-size:11px;padding:1px 7px;border:1px solid var(--terra);color:var(--terra);border-radius:2px;margin-right:4px}
+.ico{display:inline-block;width:18px;height:18px;border:1.5px solid var(--gray);border-radius:2px;vertical-align:-4px;margin-right:8px;position:relative}
+.ico.y{border-color:var(--yellow)}.ico.r{border-color:var(--red)}
+.row{display:flex;align-items:center;gap:8px;padding:7px 8px;border-left:2px solid transparent}
+.row.on{background:#241f19;border-color:var(--yellow);color:var(--yellow)}
+.row .n{margin-left:auto;font-size:12px;color:var(--gray)}
+.row.l2{padding-left:26px}.row.l3{padding-left:44px}
+.fab{position:absolute;right:14px;bottom:14px;width:48px;height:48px;border-radius:50%;background:var(--red);display:grid;place-items:center;font-weight:700;font-size:22px;border:2px solid var(--terra)}
+.hint{position:absolute;left:16px;bottom:10px;font-size:11px;color:var(--gray)}
+.kbd{border:1px solid var(--gray);padding:0 5px;border-radius:2px;font-size:11px}
+.btabs{display:flex;border-top:1px solid var(--line);background:var(--panel)}
+.btabs div{flex:1;text-align:center;padding:9px 0 8px;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--gray)}
+.btabs div.on{color:var(--yellow);border-top:2px solid var(--yellow);margin-top:-1px}
+.mtop{padding:10px 14px;border-bottom:1px solid var(--line);background:var(--panel);display:flex;align-items:center;gap:8px}
+.mbody{flex:1;padding:12px 14px;overflow:hidden;position:relative}
+.crumb{font-size:11px;color:var(--gray);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
+.grid{display:grid;gap:10px}
+.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}
+.card{background:var(--panel-2);border:1px solid var(--line);padding:10px;border-radius:2px}
+.card .sub{margin-top:6px}
+.tag{font-size:11px;color:var(--yellow);margin-right:6px}
+.wave{height:26px;background:repeating-linear-gradient(90deg,var(--terra) 0 2px,transparent 2px 5px);opacity:.8;mask:linear-gradient(0deg,#000,#000);}
+
+/* wheel */
+.wheel{position:absolute;inset:0;background:rgba(2,3,0,.82);display:grid;place-items:center}
+.ring{position:relative;width:340px;height:340px;border-radius:50%;border:2px solid var(--line);background:radial-gradient(circle,var(--panel-2) 0 34%,transparent 35%)}
+.ring.sm{width:250px;height:250px}
+.slot{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px;border-radius:50%;background:var(--panel-2);border:2px solid var(--gray);display:grid;place-items:center;text-align:center;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--gray);transform:rotate(var(--a)) translateY(calc(var(--r)*-1)) rotate(calc(var(--a)*-1))}
+.ring{--r:132px}.ring.sm{--r:96px}
+.ring.sm .slot{width:62px;height:62px;margin:-31px;font-size:10px}
+.slot.on{border-color:var(--yellow);color:var(--yellow);background:#2a2008;box-shadow:0 0 0 4px rgba(254,170,0,.18)}
+.center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;width:120px}
+.center b{font-family:var(--font-topic);font-weight:400;font-size:22px;letter-spacing:.05em;color:var(--yellow);display:block}
+.center span{font-size:11px;color:var(--gray)}
+.legend{margin-top:14px;display:grid;gap:6px;font-size:13px;color:var(--gray);max-width:75ch}
+.legend li{margin-left:18px}
+.legend b{color:var(--white)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>CHIMPINHO COMPENDIUM</h1>
+<p class="lede">Wireframes v1 — baixa fidelidade. Estrutura, hierarquia e comportamento; os detalhes visuais (textura, ornamentos) vêm depois. Paleta e fontes seguem <code>docs/design/tokens.md</code>. Dados de exemplo são fictícios.</p>
+
+<!-- ============ 1. MENU ============ -->
+<h2>1 · MENU PRINCIPAL (inspirado no menu de pausa)</h2>
+<p class="note"><b>Função:</b> ponto de entrada após o login. Abas de seção no topo (desktop) e na base (mobile). A lista da esquerda mostra os espaços; o painel à direita mostra o que há de novo/pendente no espaço selecionado.</p>
+<div class="pair">
+ <div>
+  <div class="label">Desktop ≥ 1024</div>
+  <div class="frame desk">
+   <div class="topbar"><span class="brand">COMPENDIUM</span>
+     <span class="tab on">Diário</span><span class="tab">Índice</span><span class="tab">Cartas</span><span class="tab">Busca</span><span class="tab">Ajustes</span>
+     <span class="spacer"></span><span class="pill">Ctrl+K buscar</span></div>
+   <div class="body">
+    <div class="side">
+      <div class="label">Espaços</div>
+      <div class="row on"><span class="ico y"></span>Trabalho<span class="n">24</span></div>
+      <div class="row"><span class="ico"></span>Japonês<span class="n">112</span></div>
+      <div class="row"><span class="ico"></span>Flauta<span class="n">37</span></div>
+      <div class="row"><span class="ico"></span>Leituras<span class="n">9</span></div>
+      <div class="row muted"><span class="ico"></span>+ Novo espaço</div>
+    </div>
+    <div class="main">
+      <div class="title"><small>Espaço</small>TRABALHO</div>
+      <div class="grid g3" style="margin-top:14px">
+        <div class="panel"><h4>Cartas para hoje</h4><div class="title" style="font-size:30px;color:var(--yellow)">18</div><div class="muted">3 decks</div></div>
+        <div class="panel"><h4>Sequência</h4><div class="title" style="font-size:30px">6 dias</div><div class="bar" style="margin-top:6px"><i style="width:60%"></i></div></div>
+        <div class="panel"><h4>Tarefas abertas</h4><div class="title" style="font-size:30px">5</div><div class="muted">2 vencem hoje</div></div>
+      </div>
+      <div class="panel" style="margin-top:12px"><h4>Recentes</h4>
+        <div class="row"><span class="ico"></span>Reunião de planejamento Q4<span class="n">há 2 h</span></div>
+        <div class="row"><span class="ico"></span>Checklist de deploy<span class="n">ontem</span></div>
+        <div class="row"><span class="ico"></span>Notas de arquitetura<span class="n">2 dias</span></div>
+      </div>
+    </div>
+   </div>
+   <div class="fab">+</div><div class="hint"><span class="kbd">Q</span> abre a roda de criação</div>
+  </div>
+ </div>
+ <div>
+  <div class="label">Mobile 360</div>
+  <div class="frame mob">
+   <div class="mtop"><span class="brand" style="margin:0">COMPENDIUM</span><span class="spacer"></span><span class="pill">⌕</span></div>
+   <div class="mbody">
+     <div class="title" style="font-size:28px"><small>Espaço</small>TRABALHO</div>
+     <div class="grid g2" style="margin-top:10px">
+       <div class="panel"><h4>Cartas</h4><div class="title" style="font-size:26px;color:var(--yellow)">18</div></div>
+       <div class="panel"><h4>Sequência</h4><div class="title" style="font-size:26px">6d</div></div>
+     </div>
+     <div class="panel" style="margin-top:10px"><h4>Recentes</h4>
+       <div class="row"><span class="ico"></span>Reunião Q4</div>
+       <div class="row"><span class="ico"></span>Checklist deploy</div>
+       <div class="row"><span class="ico"></span>Arquitetura</div>
+     </div>
+     <div class="fab" style="bottom:6px;right:6px">+</div>
+   </div>
+   <div class="btabs"><div class="on">Diário</div><div>Índice</div><div>Cartas</div><div>Busca</div><div>Mais</div></div>
+  </div>
+ </div>
+</div>
+<ul class="legend">
+ <li><b>Espaço atual</b> persiste entre sessões; troca pela roda (modo "Espaços") ou pela lista.</li>
+ <li><b>Mobile:</b> 4 abas + "Mais" (Ajustes, lixeira, exportar). Alvos ≥ 44px.</li>
+</ul>
+
+<!-- ============ 2. INDICE ============ -->
+<h2>2 · ÍNDICE DE TÓPICOS (inspirado no índice do mapa)</h2>
+<p class="note"><b>Função:</b> navegar a árvore de tópicos/subtópicos com profundidade livre. Desktop: árvore à esquerda + conteúdo do nó à direita. Mobile: navegação por níveis (drill-down) com breadcrumb.</p>
+<div class="pair">
+ <div>
+  <div class="label">Desktop</div>
+  <div class="frame desk">
+   <div class="topbar"><span class="brand">COMPENDIUM</span>
+     <span class="tab">Diário</span><span class="tab on">Índice</span><span class="tab">Cartas</span><span class="tab">Busca</span><span class="tab">Ajustes</span></div>
+   <div class="body">
+    <div class="side" style="width:260px">
+      <div class="row"><span class="ico"></span>Trabalho<span class="n">24</span></div>
+      <div class="row on"><span class="ico y"></span>Japonês<span class="n">112</span></div>
+      <div class="row l2"><span class="ico"></span>Hiragana<span class="n">18</span></div>
+      <div class="row l2"><span class="ico"></span>Katakana<span class="n">14</span></div>
+      <div class="row l2"><span class="ico"></span>Gramática N5<span class="n">40</span></div>
+      <div class="row l3"><span class="ico"></span>Partículas<span class="n">12</span></div>
+      <div class="row l3"><span class="ico"></span>Verbos<span class="n">28</span></div>
+      <div class="row l2"><span class="ico"></span>Vocabulário<span class="n">40</span></div>
+      <div class="row"><span class="ico"></span>Flauta<span class="n">37</span></div>
+      <div class="row"><span class="ico"></span>Leituras<span class="n">9</span></div>
+    </div>
+    <div class="main">
+      <div class="crumb">Japonês › Gramática N5</div>
+      <div class="title"><small>Tópico</small>GRAMÁTICA N5</div>
+      <div class="grid g3" style="margin-top:14px">
+        <div class="card"><span class="ico r"></span><span class="sub">Partículas</span><div class="muted">12 itens · 3 decks</div><div class="bar" style="margin-top:6px"><i style="width:70%"></i></div></div>
+        <div class="card"><span class="ico r"></span><span class="sub">Verbos</span><div class="muted">28 itens · 5 decks</div><div class="bar" style="margin-top:6px"><i style="width:35%"></i></div></div>
+        <div class="card muted" style="border-style:dashed"><span class="sub">+ Subtópico</span></div>
+      </div>
+      <div class="panel" style="margin-top:12px"><h4>Itens deste tópico</h4>
+        <div class="row"><span class="ico"></span>Resumo geral da gramática<span class="n">nota</span></div>
+        <div class="row"><span class="ico"></span>Lista de exercícios<span class="n">checklist</span></div>
+      </div>
+    </div>
+   </div>
+   <div class="hint">Arraste para reordenar · botão direito: renomear, mover, arquivar</div>
+  </div>
+ </div>
+ <div>
+  <div class="label">Mobile</div>
+  <div class="frame mob">
+   <div class="mtop"><span class="pill">‹</span><span class="sub">Gramática N5</span><span class="spacer"></span><span class="pill">⋮</span></div>
+   <div class="mbody">
+     <div class="crumb">Japonês › Gramática N5</div>
+     <div class="card"><span class="ico r"></span><span class="sub">Partículas</span><span class="n muted" style="float:right">12 ›</span><div class="bar" style="margin-top:8px"><i style="width:70%"></i></div></div>
+     <div class="card" style="margin-top:8px"><span class="ico r"></span><span class="sub">Verbos</span><span class="n muted" style="float:right">28 ›</span><div class="bar" style="margin-top:8px"><i style="width:35%"></i></div></div>
+     <div class="card muted" style="margin-top:8px;border-style:dashed">+ Subtópico</div>
+     <div class="panel" style="margin-top:10px"><h4>Itens</h4>
+       <div class="row"><span class="ico"></span>Resumo geral</div>
+       <div class="row"><span class="ico"></span>Exercícios</div>
+     </div>
+     <div class="fab" style="bottom:6px;right:6px">+</div>
+   </div>
+   <div class="btabs"><div>Diário</div><div class="on">Índice</div><div>Cartas</div><div>Busca</div><div>Mais</div></div>
+  </div>
+ </div>
+</div>
+<ul class="legend">
+ <li><b>Contadores</b> somam itens dos descendentes; barra = domínio (cartas revisadas com sucesso).</li>
+ <li><b>Mobile:</b> toque entra no nível; botão ‹ e breadcrumb voltam. Reordenar via menu ⋮ ("Modo mover").</li>
+</ul>
+
+<!-- ============ 3. DETALHE ============ -->
+<h2>3 · DETALHE DO TÓPICO (inspirado na ficha de animal)</h2>
+<p class="note"><b>Função:</b> visão completa de um tópico: título em destaque, painel lateral com metadados e progresso (como a ficha de pesquisa do animal), e abas com os itens (notas, decks, checklists, links, anexos).</p>
+<div class="pair">
+ <div>
+  <div class="label">Desktop</div>
+  <div class="frame desk">
+   <div class="topbar"><span class="brand">COMPENDIUM</span>
+     <span class="tab">Diário</span><span class="tab on">Índice</span><span class="tab">Cartas</span><span class="tab">Busca</span><span class="tab">Ajustes</span></div>
+   <div class="body">
+    <div class="main" style="flex:1.6;border-right:1px solid var(--line)">
+      <div class="crumb">Flauta › Repertório</div>
+      <div class="title"><small>Tópico</small>ESCALA DE SOL MAIOR</div>
+      <div style="margin:10px 0"><span class="badge">técnica</span><span class="badge">iniciante</span><span class="tag">#aquecimento</span></div>
+      <div style="display:flex;gap:18px;border-bottom:1px solid var(--line);margin-bottom:10px">
+        <span class="tab on">Notas · 3</span><span class="tab">Cartas · 1</span><span class="tab">Tarefas · 2</span><span class="tab">Anexos · 4</span>
+      </div>
+      <div class="txt">A escala de Sol maior tem um sustenido (Fá#). Praticar a 60 bpm, articulação ligada e depois staccato. Atenção à embocadura na transição Si–Dó.</div>
+      <div class="panel" style="margin-top:12px"><h4>Anexos</h4>
+        <div class="row"><span class="ico y"></span>gravacao-2026-11-08.mp3<span class="n">▶ 1:42</span></div>
+        <div class="wave"></div>
+        <div class="row"><span class="ico"></span>partitura.pdf<span class="n">1,2 MB</span></div>
+      </div>
+    </div>
+    <div class="side" style="width:250px;border-right:0;border-left:0">
+      <div class="panel"><h4>Ficha</h4>
+        <div class="row" style="padding:3px 0"><span class="muted">Criado</span><span class="n" style="color:var(--white)">02/11</span></div>
+        <div class="row" style="padding:3px 0"><span class="muted">Atualizado</span><span class="n" style="color:var(--white)">hoje</span></div>
+        <div class="row" style="padding:3px 0"><span class="muted">Itens</span><span class="n" style="color:var(--white)">10</span></div>
+      </div>
+      <div class="panel" style="margin-top:10px"><h4>Domínio</h4>
+        <div class="title" style="font-size:26px;color:var(--yellow)">58%</div>
+        <div class="bar" style="margin:6px 0"><i style="width:58%"></i></div>
+        <div class="muted" style="font-size:12px">Próxima revisão: amanhã</div>
+      </div>
+      <div class="panel" style="margin-top:10px"><h4>Relacionados</h4>
+        <div class="row" style="padding:3px 0"><span class="tag">[[</span>Respiração diafragmática</div>
+        <div class="row" style="padding:3px 0"><span class="tag">[[</span>Escala de Ré maior</div>
+      </div>
+    </div>
+   </div>
+   <div class="fab">+</div>
+  </div>
+ </div>
+ <div>
+  <div class="label">Mobile</div>
+  <div class="frame mob">
+   <div class="mtop"><span class="pill">‹</span><span class="sub">Flauta</span><span class="spacer"></span><span class="pill">⋮</span></div>
+   <div class="mbody">
+     <div class="title" style="font-size:26px"><small>Tópico</small>ESCALA DE SOL MAIOR</div>
+     <div style="margin:8px 0"><span class="badge">técnica</span><span class="tag">#aquecimento</span></div>
+     <div class="panel"><div style="display:flex;justify-content:space-between"><span class="muted">Domínio</span><b style="color:var(--yellow)">58%</b></div><div class="bar" style="margin-top:6px"><i style="width:58%"></i></div></div>
+     <div style="display:flex;gap:10px;margin:10px 0 6px;overflow:hidden"><span class="tab on" style="padding:4px 0">Notas</span><span class="tab" style="padding:4px 0">Cartas</span><span class="tab" style="padding:4px 0">Tarefas</span><span class="tab" style="padding:4px 0">Anexos</span></div>
+     <div class="txt">A escala de Sol maior tem um sustenido (Fá#). Praticar a 60 bpm…</div>
+     <div class="panel" style="margin-top:10px"><div class="row" style="padding:3px 0"><span class="ico y"></span>gravacao.mp3<span class="n">▶</span></div><div class="wave"></div></div>
+     <div class="fab" style="bottom:6px;right:6px">+</div>
+   </div>
+   <div class="btabs"><div>Diário</div><div class="on">Índice</div><div>Cartas</div><div>Busca</div><div>Mais</div></div>
+  </div>
+ </div>
+</div>
+<ul class="legend">
+ <li><b>Ficha</b> vira bloco recolhível no mobile (aqui resumida em "Domínio").</li>
+ <li><b>Anexos de áudio</b> têm player inline com forma de onda; limite de tamanho por arquivo.</li>
+ <li><b>Relacionados</b> vêm dos links <code>[[...]]</code> e backlinks (Fase 4).</li>
+</ul>
+
+<!-- ============ 4. RODA ============ -->
+<h2>4 · RODA DE CRIAÇÃO RÁPIDA (inspirada na roda de itens)</h2>
+<p class="note"><b>Função:</b> criar rápido um item no tópico atual ou trocar de espaço. Desktop: segurar <span class="kbd">Q</span> (ou clicar em +); mover o mouse para a direção do item e soltar. Mobile: toque longo no botão +, deslizar e soltar. Sem o gesto, o botão + abre um menu comum (acessibilidade).</p>
+<div class="pair">
+ <div>
+  <div class="label">Desktop — modo "Criar"</div>
+  <div class="frame desk">
+   <div class="topbar"><span class="brand">COMPENDIUM</span><span class="tab">Diário</span><span class="tab on">Índice</span><span class="tab">Cartas</span></div>
+   <div class="wheel">
+    <div class="ring">
+     <div class="slot on" style="--a:0deg">Nota</div>
+     <div class="slot" style="--a:45deg">Deck</div>
+     <div class="slot" style="--a:90deg">Tarefas</div>
+     <div class="slot" style="--a:135deg">Link</div>
+     <div class="slot" style="--a:180deg">Áudio</div>
+     <div class="slot" style="--a:225deg">Anexo</div>
+     <div class="slot" style="--a:270deg">Subtópico</div>
+     <div class="slot" style="--a:315deg">Espaço</div>
+     <div class="center"><b>NOTA</b><span>em Flauta › Repertório</span></div>
+    </div>
+   </div>
+   <div class="hint" style="z-index:2">Solte <span class="kbd">Q</span> para confirmar · <span class="kbd">Esc</span> cancela · <span class="kbd">Tab</span> alterna Criar / Espaços</div>
+  </div>
+ </div>
+ <div>
+  <div class="label">Mobile</div>
+  <div class="frame mob">
+   <div class="mtop"><span class="brand" style="margin:0">COMPENDIUM</span></div>
+   <div class="wheel" style="top:46px">
+    <div class="ring sm">
+     <div class="slot on" style="--a:0deg">Nota</div>
+     <div class="slot" style="--a:60deg">Deck</div>
+     <div class="slot" style="--a:120deg">Tarefas</div>
+     <div class="slot" style="--a:180deg">Áudio</div>
+     <div class="slot" style="--a:240deg">Anexo</div>
+     <div class="slot" style="--a:300deg">Sub-tópico</div>
+     <div class="center" style="width:90px"><b style="font-size:18px">NOTA</b></div>
+    </div>
+    <div class="fab" style="bottom:20px;right:20px;border-color:var(--yellow)">+</div>
+   </div>
+  </div>
+ </div>
+</div>
+<ul class="legend">
+ <li><b>Slots</b> configuráveis (até 8). Ordem padrão: mais usados primeiro.</li>
+ <li><b>Modo "Espaços"</b> (Tab): mesma roda, com os espaços (Trabalho, Japonês, Flauta…).</li>
+ <li><b>Acessibilidade:</b> alternativa completa por menu e teclado; movimento reduzido desliga a animação.</li>
+</ul>
+
+<h2>QUESTÕES EM ABERTO</h2>
+<ul class="legend">
+ <li>Aba "Cartas" (sessão de revisão): wireframe fica para a Fase 2.</li>
+ <li>Tela de login e 2FA: wireframe na Fase 1, junto do spike de auth.</li>
+ <li>Textura/ornamentos: criados à parte (sem assets do jogo).</li>
+</ul>
+</div>
+</body>
+</html>

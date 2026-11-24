@@ -4,7 +4,7 @@ Caderno pessoal de anotações e estudos com estética inspirada em Red Dead Red
 Organiza trabalho, idiomas, música etc. em uma árvore de tópicos/subtópicos, com notas, flashcards (repetição espaçada), checklists, links e anexos (inclusive áudio).
 
 ## Status
-Fase 1 (MVP) em andamento: backend com auth, árvore de tópicos e notas (`items`) prontos; frontend, anexos e busca pendentes. Ver `docs/prompts/000-plano-geral.md`.
+Fase 1 (MVP) quase fechada: backend (auth, tópicos, notas, anexos, busca) e frontend (login, árvore, editor de notas, busca, PWA) prontos. Pendentes: UI de anexos (depende do bucket R2 real) e conferência manual de busca e instalação do PWA. Ver `docs/prompts/000-plano-geral.md`.
 
 ## Decisões-chave
 - Uso inicial: só do dono, **mas multiusuário-ready** (todo dado pertence a um `user_id`; cadastro público desligado por flag).

@@ -25,7 +25,7 @@
 - [x] Página de nota com editor Tiptap (autosave) — ver `008-fase1-frontend-notas.md`. Conferido no navegador pelo dono (2026-11-23).
 - [ ] UI de anexos (depende do R2 real)
 - [x] Busca na UI — ver `009-fase1-frontend-busca.md` (falta conferir no navegador)
-- [ ] PWA instalável
+- [x] PWA instalável — ver `010-fase1-pwa.md` (falta conferir a instalação no navegador)
 
 **Fase 2 — Estudo**
 - Decks e flashcards com repetição espaçada

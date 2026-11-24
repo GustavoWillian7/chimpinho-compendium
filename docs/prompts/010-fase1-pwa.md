@@ -16,6 +16,6 @@ Tornar o app instalável (desktop e mobile) sem arriscar dados autenticados em c
 - **Não verificado no navegador:** instalação (Chrome/Android/iOS), Lighthouse PWA. O SW exige HTTPS ou localhost; testar com `npm run build && npm run preview`.
 
 ## Pendências
-- Conferir a instalação de fato e o comportamento offline.
+- Verificado pelo dono no desktop (2026-11-24): a opção "Instalar" aparece. Cache Storage sem `/api/` conferido. Offline não foi testado (dado como OK pelo dono). Falta o mobile (Android via USB; iOS só após deploy com HTTPS).
 - Ícone definitivo.
 - Atualização do SW: `skipWaiting` + `clients.claim` aplicam a versão nova no próximo carregamento; sem aviso de "nova versão".

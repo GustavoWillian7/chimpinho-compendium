@@ -24,8 +24,10 @@
 - [x] Frontend base: scaffold, login (com TOTP), shell responsivo e árvore de tópicos — ver `007-fase1-frontend-base.md`
 - [x] Página de nota com editor Tiptap (autosave) — ver `008-fase1-frontend-notas.md`. Conferido no navegador pelo dono (2026-11-23).
 - [ ] UI de anexos (depende do R2 real)
-- [x] Busca na UI — ver `009-fase1-frontend-busca.md` (falta conferir no navegador)
-- [x] PWA instalável — ver `010-fase1-pwa.md` (falta conferir a instalação no navegador)
+- [x] Busca na UI — ver `009-fase1-frontend-busca.md` (conferida no navegador pelo dono, 2026-11-24)
+- [x] PWA instalável — ver `010-fase1-pwa.md` (opção "Instalar" aparece no desktop, 2026-11-24; Cache Storage sem /api/ conferido; offline e mobile não testados)
+
+**Onde paramos (2026-11-24):** Fase 1 fechada, exceto a UI de anexos (depende do R2 real). Próximos passos possíveis, sem ordem fixa: (1) pendências pequenas da Fase 1 (401 no meio do uso, CI, mover/apagar notas pela lista do tópico, bundle do Tiptap); (2) Fase 2 (decks, flashcards, eventos de atividade); (3) configurar R2 e fazer a UI de anexos. Conferências em aberto: PWA offline e mobile.
 
 **Fase 2 — Estudo**
 - Decks e flashcards com repetição espaçada
